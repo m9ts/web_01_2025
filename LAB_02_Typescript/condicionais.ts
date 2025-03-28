@@ -5,4 +5,4 @@ if ( idade < 12) {
     console . log (" Adolescente ") ;
 } else {
     console . log (" Adulto ") ;
-9 }
+}

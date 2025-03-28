@@ -13,7 +13,8 @@ console . log (" Incremento :" , a ) ;
 a += b;
 console . log (" Atribui ç ã o com adi ç ã o :" , a );
 
-/* Explicação:
+/* 
+Explicação:
 Operadores Aritméticos: Soma (+), Subtração (-), Multiplicação (*), Divisão (/), Módulo (%),
 Exponenciação (**).
 Operadores de Igualdade: Igualdade (==), Igualdade estrita (===). O operador == compara os
