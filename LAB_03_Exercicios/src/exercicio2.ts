@@ -9,3 +9,7 @@ Adicione:
 "Beatriz"no início do array (usando unshift)
 Imprima a lista final e o total de nomes
 */
+
+let nomes: string [] = ["Carlos", "Ana", "Pedro", "Mariana"];
+
+nomes.push("João");
