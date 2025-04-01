@@ -12,4 +12,9 @@ Imprima a lista final e o total de nomes
 
 let nomes: string [] = ["Carlos", "Ana", "Pedro", "Mariana"];
 
+console.log("Nomes na lista padrão: ", nomes);
+
 nomes.push("João");
+nomes.unshift("Beatriz");
+
+console.log("Nomes na lista após adições: ", nomes);
