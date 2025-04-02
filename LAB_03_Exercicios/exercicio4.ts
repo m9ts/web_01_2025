@@ -19,3 +19,5 @@ Determine:
 * Soma de todos os valores
 Exiba os três arrays resultantes e todas as estatísticas calculadas
 */
+
+let numeri = [12, 25, 37, 40, 18, 55, 62, 71, 84, 91, 105, 120, 33, 47, 52];

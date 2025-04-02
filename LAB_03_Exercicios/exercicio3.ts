@@ -9,3 +9,21 @@ Use um loop for para percorrer dados e separar os elementos:
 Verifique o tipo de cada elemento usando typeof
 Imprima os dois arrays resultantes
 */
+
+let listaGeral: (number | string) [] = [10, "Azul", 25, "Vermelho", 30, "Verde"];
+let valoresNumericos: number [] = [];
+let valoresTextuais: string [] = [];
+
+for (let busca of listaGeral){
+    if (typeof busca === 'number'){
+        valoresNumericos.push(busca);
+    }
+}
+console.log("Lista com valores numéricos: ", valoresNumericos);
+
+for (let busca of listaGeral){
+    if (typeof busca === 'string'){
+        valoresTextuais.push(busca);
+    }
+}
+console.log("Lista com valores textuais: ", valoresTextuais);
