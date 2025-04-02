@@ -7,3 +7,5 @@ Remova o primeiro item da lista usando shift
 Adicione "Café"no final do array com push
 Imprima a lista final e o número total de itens
 */
+
+let produtos: string [] = ["Arroz", "Feijão", "Leite", "Pão"];
