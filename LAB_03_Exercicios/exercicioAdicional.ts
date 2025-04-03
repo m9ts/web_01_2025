@@ -13,3 +13,6 @@ Imprima:
 - A lista final de produtos
 - O número total de itens
 */
+
+let prod: string [] = ["Arroz", "Feijão", "Leite", "Pão", "Açúcar", "Café", "Óleo"];
+
