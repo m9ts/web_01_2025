@@ -44,3 +44,53 @@ Comportamento esperado:
 (d) Marca cada tarefa como concluída após processar
 */
 
+type Tarefa ={
+    descricao: string;
+    prioridade: number;
+    concluida: boolean;
+
+};
+
+function executarTarefas(
+    tarefas: Tarefa[],
+    callback: (descricao: string, indice: number, total: number) => void,
+    intervalo: number = 1000
+)
+{
+    tarefas.sort((a,b) => a.prioridade - b.prioridade);
+
+    let indice = 0;
+    const total = tarefas.length;
+
+    const executar = setInterval (() => {
+        if (indice >= total){
+            clearInterval(executar);
+            return;
+        }
+        const tarefa = tarefas [indice];
+
+        if (tarefa.descricao === "Cancelar"){
+            clearInterval(executar);
+            return;
+        }
+
+        tarefa.concluida = true;
+        callback(tarefa.descricao, indice, total);
+        
+        indice++;
+    }, intervalo);
+
+}
+const tarefas : Tarefa [] = [
+    {descricao: "Fazer relatório", prioridade: 2, concluida: false},
+    {descricao: "Enviar e- mail ", prioridade: 3 , concluida: false},
+    {descricao: "Reunião com equipe ", prioridade: 1 , concluida: false}
+];
+
+
+function imprimirTarefas(descricao: string, indice: number, totalTarefas: number):void{
+    console.log(`Tarefa concluída: ${descricao}`);
+    console.log(`Progresso: ${indice + 1}/${totalTarefas}`);
+}
+
+executarTarefas(tarefas, imprimirTarefas, 1500);

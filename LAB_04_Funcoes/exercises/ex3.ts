@@ -5,7 +5,7 @@ com todos os valores multiplicados por 2.
 */
 
 function dobrarNumeros(num: number[]): number[]{ // Criando array que recebe um array do tipo número
-    let arrayNumeros: number[] = []; // Criando novo array que exibirá os números dobrados do array nu,
+    let arrayNumeros: number[] = []; // Criando novo array que exibirá os números dobrados do array num
     for (let i = 0; i < num.length; i++){// Loop será executado enquanto o valor de i for menor que o comprimento do array num
         arrayNumeros[i] = num[i]*2; // arrayNumeros conterá o dobro de cada elemento do array num
     }
