@@ -31,6 +31,17 @@ class Livro{
     }
 }
 
-const Livro1 = new Livro("O príncipe", "Nicolau Maquiavel", 1532, "Não sabo");
-
+const Livro1 = new Livro("O príncipe", "Nicolau Maquiavel", 1532, "---");
 Livro1.exibirDados();  
+
+/*
+2. Instanciando Objetos
+Usando a classe Livro do exercício anterior, crie dois objetos diferentes e chame o método exibirDados()
+para ambos.
+*/
+
+const object1 = new Livro("O capital", "Karl Marx", 1919, "---");
+object1.exibirDados();
+
+const object2 = new Livro("Eichamnn em Jerusalém", "Hannah Arendt", 1963, "---");
+object2.exibirDados();
