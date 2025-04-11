@@ -1,12 +1,12 @@
-export class aluno{
-    nome: string
-    matricula: string
-    idade: number
+export class Aluno{
+    nome: string;
+    matricula: string;
+    idade: number;
 
     constructor(nome: string, matricula: string, idade: number){
-        this.nome = nome
-        this.matricula = matricula
-        this.idade = idade
+        this.nome = nome;
+        this.matricula = matricula;
+        this.idade = idade;
     }
 
     imprimeAluno(){

@@ -10,10 +10,10 @@ imprime as informações do livro no console.
 */
 
 class Livro{
-    titulo: string
-    autor: string
-    anoPublicacao: number
-    editora: string
+    titulo: string;
+    autor: string;
+    anoPublicacao: number;
+    editora: string;
 
     constructor(titulo: string, autor: string, anoPublicacao: number, editora: string){
         this.titulo = titulo;

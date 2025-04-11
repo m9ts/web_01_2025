@@ -9,9 +9,9 @@ depois da alteração utilizando um método mostrarCarro().
 */
 
 class Carro{
-    marca: string
-    modelo: string
-    ano: number
+    marca: string;
+    modelo: string;
+    ano: number;
 
     constructor(marca: string, modelo: string, ano: number){
         this.marca = marca;

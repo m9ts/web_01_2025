@@ -9,16 +9,15 @@ Crie um objeto dessa classe e chame o método.
 */
 
 class Usuario{
-    nome: string
-    email: string
+    nome: string;
+    email: string;
 
     constructor(nome: string, email: string){
         this.nome = nome;
-        this.email = email
+        this.email = email;
     }
     boasVindas(){
-        console.log(`Bem vindo(a) ${this.nome}! 
-        Seu e-mail é ${this.email}.`)
+        console.log(`Bem vindo(a) ${this.nome}! \nSeu e-mail é ${this.email}.`)
     }
 }
 
