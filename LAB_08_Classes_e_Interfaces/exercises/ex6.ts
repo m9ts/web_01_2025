@@ -16,7 +16,6 @@ class Numeros{
     }
     adicionar (valor: number){
         this.valores.push(valor);
-        
     }
     removerUltimo(){
         this.valores.pop();
