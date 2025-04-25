@@ -26,58 +26,66 @@ console . log ( DateUtils . ehFinalDeSemana ( hoje ) ) ;
 console . log ( DateUtils . converterParaISO ( hoje ) ) ;
 */
 
-export class DateUtils{
+class DateUtils {
 
-    formatarData(data: Date, formato: string): string{
-        let dataFormatada:string = ''
-        let sepador = '/'
+    formatarData(data: Date, formato: string): string {
+        let dataFormatada: string = '';
+        let separador = '/';
 
-        let separadores: string[] = formato.split('/')
-        if(separadores.length == 1){
-            separadores = formato.split('-')
-            sepador = '-'
+        let separadores: string[] = formato.split('/');
+        if (separadores.length === 1) {
+            separadores = formato.split('-');
+            separador = '-';
         }
-        let cont:number = 0
-        for(let sep of separadores){
-            cont ++
-            if(sep == 'DD'){
-                if(data.getDay() < 10){
-                    dataFormatada += '0'
+
+        let cont = 0;
+        for (let sep of separadores) {
+            cont++;
+            if (sep === 'DD') {
+                if (data.getDate() < 10) {
+                    dataFormatada += '0';
                 }
-                dataFormatada += data.getDay()
+                dataFormatada += data.getDate();
             }
-            else if(sep == 'MM'){
-                if(data.getMonth() < 10){
-                    dataFormatada += '0'
+            else if (sep === 'MM') {
+                if (data.getMonth() + 1 < 10) {
+                    dataFormatada += '0';
                 }
-                dataFormatada += data.getMonth()
+                dataFormatada += (data.getMonth() + 1);
             }
-            else if(sep == 'YYYY'){
-                dataFormatada += data.getFullYear()
+            else if (sep === 'YYYY') {
+                dataFormatada += data.getFullYear();
             }
 
-            if(cont < 3){
-                dataFormatada += sepador
+            if (cont < 3) {
+                dataFormatada += separador;
             }
         }
-        return dataFormatada
+        return dataFormatada;
     }
 
-    diferencaEmDias(dataInicial: Date, dataFinal: Date):number{
+    diferencaEmDias(dataInicial: Date, dataFinal: Date): number {
         const diffEmMs = dataFinal.getTime() - dataInicial.getTime();
         return diffEmMs / (1000 * 60 * 60 * 24);
     }
 
-    adicionarDias(data: Date, dias: number): Date{
-        data.setDate(data.getDate() + dias)
-        return data
+    adicionarDias(data: Date, dias: number): Date {
+        return new Date(data.getTime() + dias * 86400000);
     }
 
-    ehFinalDeSemana(data: Date): boolean{
-        return data.getDay() >= 6
+    ehFinalDeSemana(data: Date): boolean {
+        return data.getDay() === 0 || data.getDay() === 6;
     }
 
-    converterParaISO(data: Date): string{
-        return data.toISOString()
+    converterParaISO(data: Date): string {
+        return data.toISOString();
     }
 }
+
+const dateUtils = new DateUtils()
+
+console.log( dateUtils.formatarData(new Date(), 'YYYY-MM-DD'))
+console.log(dateUtils.diferencaEmDias(new Date("2025-04-01"), new Date()))
+console.log(dateUtils.adicionarDias(new Date(), 10))
+console.log(dateUtils.ehFinalDeSemana(dateUtils.adicionarDias(new Date(), 2)))
+console.log(dateUtils.converterParaISO(new Date()))
