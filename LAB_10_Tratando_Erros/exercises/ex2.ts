@@ -17,4 +17,4 @@ function cadastrarUsuario(nome: string, idade: number){
 }
 
 cadastrarUsuario("Mateus", 19);
-cadastrarUsuario("", 0);
+cadastrarUsuario("", 0); 
