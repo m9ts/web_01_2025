@@ -24,3 +24,7 @@ function calcularMedia(notas: number[]): number{
       return 0;
    }
 }
+
+console.log(calcularMedia([4]));
+console.log(calcularMedia([5, 10, 20]));
+console.log(calcularMedia([]));
