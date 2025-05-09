@@ -10,6 +10,7 @@ Exemplo 4: Objeto com array
         { " nome ": "R é gua", " quantidade ": 1 }
     ]  
 }
+Tarefa: Crie classes `Produto` e `Item`.
 */
 
 interface Item{
