@@ -1,0 +1,20 @@
+{
+  "name": "lab_05_callback",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/jogadores.js",
+    "build": "npx tsc",
+    "dev": "ts-node src/jogadores.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "express": "^5.1.0",
+    "typescript": "^5.8.2"
+  }
+}
