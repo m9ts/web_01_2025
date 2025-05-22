@@ -15,19 +15,38 @@ export function cadastrarProduto(req: Request, res: Response) {
     }
 }
 
-export function pesquisarProdutoPorID(req: Request, res: Response): void {
-    const id = req.params.id;
-    const produto = productService.consultarProduto(id);
+export function pesquisarProduto(req: Request, res: Response): void {
+    const { id, name } = req.query; 
 
-    if (!produto) {
+    let produtoEncontrado;
+
+    if (id) {
+        const idNumber: number = parseInt(id as string, 10);
+        produtoEncontrado = productService.consultarProduto(idNumber);
+    } else if (name) {
+        produtoEncontrado = productService.getProducts().find(produto => 
+            produto.name.toLowerCase() === (name as string).toLowerCase()
+        );
+    }
+
+    if (!produtoEncontrado) {
         res.status(404).json({ message: "Produto não encontrado" });
         return;
     }
 
-    res.json(produto);
+    res.json(produtoEncontrado);
 }
 
+
 export function listaProdutos(req: Request, res: Response) {
-    const produtos = productService.getProducts();
+    const { order } = req.query; 
+    let produtos = productService.getProducts();
+
+    if (order === "asc") {
+        produtos.sort((a, b) => a.price - b.price);
+        produtos.sort((a, b) => b.price - a.price);
+    }
+
     res.json(produtos);
 }
+

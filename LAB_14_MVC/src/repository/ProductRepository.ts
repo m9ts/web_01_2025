@@ -18,8 +18,8 @@ export class ProductRepository {
     }
 
     filtraProdutoPorId(id: number): Product | undefined {
-        return this.productList.find(product => product.id === id);
-    }
+    return this.productList.find(product => Number(product.id) === id);
+}
 
     filtraTodosProdutos(): Product[] {
         return this.productList;

@@ -1,5 +1,5 @@
 import express from "express";
-import { cadastrarProduto, pesquisarProdutoPorID, listaProdutos } from "./controller/ProductController";
+import { cadastrarProduto, pesquisarProduto, listaProdutos } from "./controller/ProductController";
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -11,7 +11,7 @@ function logInfo() {
 }
 
 app.post("/api/product", cadastrarProduto);
-app.get("/api/product:id", pesquisarProdutoPorID);
+app.get("/api/product/:id", pesquisarProduto);
 app.get("/api/products", listaProdutos);
 
 app.listen(PORT, logInfo);
