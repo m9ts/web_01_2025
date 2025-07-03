@@ -1,4 +1,5 @@
-import { executarComandoSQL } from '../database/mysql'; // ajuste o caminho conforme seu projeto
+import { executarComandoSQL } from '../database/mysql';
+import { Product } from '../model/Product';
 
 export class ProductRepository {
   private static instance: ProductRepository;
@@ -35,5 +36,28 @@ export class ProductRepository {
     );
     console.log('Produto inserido com sucesso:', resultado);
     return new Product(resultado.insertId, name, price);
+  }
+
+  async updateProduct(data: { id?: number; name?: string; price: number }): Promise<void> {
+    let query = '';
+    let valores: any[] = [];
+
+    if (data.id) {
+      if (data.name) {
+        query = 'UPDATE Vendas.Product SET name = ?, price = ? WHERE id = ?';
+        valores = [data.name, data.price, data.id];
+      } else {
+        query = 'UPDATE Vendas.Product SET price = ? WHERE id = ?';
+        valores = [data.price, data.id];
+      }
+    } else if (data.name) {
+      query = 'UPDATE Vendas.Product SET price = ? WHERE name = ?';
+      valores = [data.price, data.name];
+    } else {
+      throw new Error('Informe ao menos o ID ou o nome do produto para atualizar.');
+    }
+
+    const resultado = await executarComandoSQL(query, valores);
+    console.log('Produto atualizado com sucesso:', resultado);
   }
 }

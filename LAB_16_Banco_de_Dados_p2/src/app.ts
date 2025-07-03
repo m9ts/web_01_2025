@@ -1,6 +1,10 @@
-import { ProductRepository } from "./repository/ProductRepository";
+import express from 'express';
+import { ProductController } from './controller/ProductController';
 
-const repository: ProductRepository = new ProductRepository();
-repository.createTable();
+const router = express.Router();
+const productController = new ProductController();
 
-repository.insertProduct("Camiseta", 20.99);
+router.post('/produto/cadastrar', productController.cadastrarProduto.bind(productController));
+router.put('/produto/atualizar', productController.atualizarProduto.bind(productController));
+
+export default router;
