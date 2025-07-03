@@ -1,4 +1,4 @@
-import { executarComandoSQL } from '../database/mysql'; // ajuste o caminho conforme seu projeto
+import { executarComandoSQL } from '../database/mysql'; 
 
 export class ProductRepository {
   
@@ -38,6 +38,32 @@ export class ProductRepository {
       console.log('Produto inserido com sucesso:', resultado);
     } catch (err) {
       console.error('Erro ao inserir o produto:', err);
+    }
+  }
+
+  updateProduct(id: number, name: string, price: number) {
+    try {
+      executarComandoSQL(
+        "UPDATE Product SET name = ?, price = ? WHERE id = ?",
+        [name, price, id],
+        this.imprimeResult.bind(this)
+      );
+      console.log('Produto atualizado com sucesso.');
+    } catch (err) {
+      console.error('Erro ao atualizar o produto:', err);
+    }
+  }
+
+  deleteProduct(id: number) {
+    try {
+      executarComandoSQL(
+        "DELETE FROM Product WHERE id = ?",
+        [id],
+        this.imprimeResult.bind(this)
+      );
+      console.log('Produto removido com sucesso.');
+    } catch (err) {
+      console.error('Erro ao remover o produto:', err);
     }
   }
 }
