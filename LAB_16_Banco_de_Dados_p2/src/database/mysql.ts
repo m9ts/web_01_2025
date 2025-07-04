@@ -9,9 +9,7 @@ const dbConfig = {
   database: 'vendas',
 };
 
-export const mysqlConnection = mysql.createConnection(dbConfig) as Connection & {
-  query: Function;
-};
+const mysqlConnection = mysql.createConnection(dbConfig);
 
 mysqlConnection.connect((err) => {
   if (err) {
