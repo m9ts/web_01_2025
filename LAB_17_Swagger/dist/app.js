@@ -12,6 +12,5 @@ app.use(express_1.default.json());
 const apiRouter = express_1.default.Router();
 (0, routes_1.RegisterRoutes)(apiRouter);
 app.use('/api', apiRouter);
-(0, routes_1.RegisterRoutes)(app);
 (0, swagger_1.setupSwagger)(app);
 app.listen(PORT, () => console.log("Api online na porta: " + PORT));

@@ -48,27 +48,59 @@ export function RegisterRoutes(app: Router) {
 
 
     
-        const argsProductController_cadastrarProduto: Record<string, TsoaRoute.ParameterSchema> = {
+        const argsProductController_insertProduct: Record<string, TsoaRoute.ParameterSchema> = {
                 dto: {"in":"body","name":"dto","required":true,"ref":"ProductDto"},
                 fail: {"in":"res","name":"400","required":true,"ref":"BasicResponseDto"},
                 success: {"in":"res","name":"201","required":true,"ref":"BasicResponseDto"},
         };
-        app.post('/product',
+        app.post('/product/Create',
             ...(fetchMiddlewares<RequestHandler>(ProductController)),
-            ...(fetchMiddlewares<RequestHandler>(ProductController.prototype.cadastrarProduto)),
+            ...(fetchMiddlewares<RequestHandler>(ProductController.prototype.insertProduct)),
 
-            async function ProductController_cadastrarProduto(request: ExRequest, response: ExResponse, next: any) {
+            async function ProductController_insertProduct(request: ExRequest, response: ExResponse, next: any) {
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
             let validatedArgs: any[] = [];
             try {
-                validatedArgs = templateService.getValidatedArgs({ args: argsProductController_cadastrarProduto, request, response });
+                validatedArgs = templateService.getValidatedArgs({ args: argsProductController_insertProduct, request, response });
 
                 const controller = new ProductController();
 
               await templateService.apiHandler({
-                methodName: 'cadastrarProduto',
+                methodName: 'insertProduct',
+                controller,
+                response,
+                next,
+                validatedArgs,
+                successStatus: undefined,
+              });
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        const argsProductController_updateProduct: Record<string, TsoaRoute.ParameterSchema> = {
+                dto: {"in":"body","name":"dto","required":true,"ref":"ProductDto"},
+                fail: {"in":"res","name":"400","required":true,"ref":"BasicResponseDto"},
+                success: {"in":"res","name":"200","required":true,"ref":"BasicResponseDto"},
+        };
+        app.put('/product/Update',
+            ...(fetchMiddlewares<RequestHandler>(ProductController)),
+            ...(fetchMiddlewares<RequestHandler>(ProductController.prototype.updateProduct)),
+
+            async function ProductController_updateProduct(request: ExRequest, response: ExResponse, next: any) {
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = templateService.getValidatedArgs({ args: argsProductController_updateProduct, request, response });
+
+                const controller = new ProductController();
+
+              await templateService.apiHandler({
+                methodName: 'updateProduct',
                 controller,
                 response,
                 next,
