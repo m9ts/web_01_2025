@@ -1,8 +1,14 @@
-import { ProductRepository } from "./repository/ProductRepository";
+import express from "express"
+import { ProductController } from "./controller/ProductController"
 
-const repository: ProductRepository = new ProductRepository();
-repository.createTable();
 
-repository.insertProduct("Camiseta", 20.99);
-repository.updateProduct(1, "Camiseta canelada", 40.99);
-repository.deleteProduct(1);
+const productController = new ProductController()
+
+const app = express()
+
+const PORT = process.env.PORT ?? 3000
+app.use(express.json())
+
+app.post("/api/produto", productController.cadastrarProduto.bind(productController))
+
+app.listen(PORT, () => console.log("Servidor rodando em http://localhost:3000"))
